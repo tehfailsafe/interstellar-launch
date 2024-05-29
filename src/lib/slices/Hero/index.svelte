@@ -1,46 +1,30 @@
 <script>
-	import { PrismicRichText } from '@prismicio/svelte';
+	import Button from '$lib/components/Button.svelte';
+	import { PrismicImage, PrismicRichText } from '@prismicio/svelte';
 
 	/** @type {import("@prismicio/client").Content.HeroSlice} */
 	export let slice;
+	console.log(slice.primary.body);
 </script>
 
-<section data-slice-type={slice.slice_type} data-slice-variation={slice.variation}>
-	<div>
-		<h1>{slice.primary.header}</h1>
-		<p><PrismicRichText field={slice.primary.body} /></p>
+<section class="relative flex text-center justify-center items-center px-8 py-20 w-full text-white">
+	<div class="flex flex-col items-center my-16 md:my-32 max-w-prose gap-4 container">
+		<h1>
+			{slice.primary.header}
+		</h1>
+
+		<div class="mb-12">
+			<PrismicRichText field={slice.primary.body} />
+		</div>
+
+		<div class="flex gap-4 text-sm">
+			{#each slice.primary.actions as item}
+				<Button field={item.link} variant={item.variant}>{item.title}</Button>
+			{/each}
+		</div>
+	</div>
+	<div class="absolute w-full h-full top-0 left-0 -z-10">
+		<PrismicImage field={slice.primary.bg_image} class="object-cover size-full" />
+		<div class="absolute inset-0 bg-primary-500/80" />
 	</div>
 </section>
-
-<style>
-	section {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		height: 100vh;
-		width: 100%;
-		background-color: black;
-		background-image: url({slice.primary.bg_image.url});
-		background-size: cover;
-		background-position: center;
-
-		--slice-color: #ffaa00;
-	}
-	div {
-		display: flex;
-		flex-direction: column;
-	}
-
-	h1 {
-		color: white;
-		text-align: center;
-		font-size: 5em;
-		font-weight: bold;
-		text-transform: uppercase;
-		max-width: 65ch;
-	}
-
-	p {
-		color: white;
-	}
-</style>

@@ -25,7 +25,7 @@
             "label": "Body",
             "placeholder": "This is a generic amount of body text that should live in the header",
             "allowTargetBlank": true,
-            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+            "single": "paragraph"
           }
         },
         "bg_image": {
@@ -36,20 +36,40 @@
             "thumbnails": []
           }
         },
-        "button_link": {
-          "type": "Link",
+        "actions": {
+          "type": "Group",
           "config": {
-            "label": "Button Link",
-            "placeholder": "",
-            "select": null
-          }
-        },
-        "cta_link": {
-          "type": "Link",
-          "config": {
-            "label": "CTA Link",
-            "placeholder": "",
-            "select": null
+            "label": "Actions",
+            "repeat": true,
+            "fields": {
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "title",
+                  "placeholder": ""
+                }
+              },
+              "link": {
+                "type": "Link",
+                "config": {
+                  "label": "link",
+                  "placeholder": "",
+                  "select": null
+                }
+              },
+              "variant": {
+                "type": "Select",
+                "config": {
+                  "label": "variant",
+                  "placeholder": "",
+                  "options": [
+                    "primary",
+                    "secondary"
+                  ],
+                  "default_value": "primary"
+                }
+              }
+            }
           }
         }
       },

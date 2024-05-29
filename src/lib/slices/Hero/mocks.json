@@ -5,8 +5,8 @@
 		"primary": {
 			"header": {
 				"__TYPE__": "FieldContent",
-				"value": "remember",
-				"type": "Text"
+				"type": "Text",
+				"value": "Ship Sites with Style!"
 			},
 			"body": {
 				"__TYPE__": "StructuredTextContent",
@@ -14,7 +14,7 @@
 					{
 						"type": "paragraph",
 						"content": {
-							"text": "Occaecat elit deserunt qui consequat pariatur et. Reprehenderit est officia veniam mollit esse ullamco anim fugiat aliquip qui sunt cillum eu non laboris."
+							"text": "Tempor adipisicing non eu sunt Lorem eiusmod cupidatat consequat ad. Ut enim ex eiusmod."
 						}
 					}
 				]
@@ -42,19 +42,73 @@
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
 			},
-			"button_link": {
-				"__TYPE__": "LinkContent",
-				"value": {
-					"__TYPE__": "ExternalLink",
-					"url": "https://slicemachine.dev"
-				}
-			},
-			"cta_link": {
-				"__TYPE__": "LinkContent",
-				"value": {
-					"__TYPE__": "ExternalLink",
-					"url": "https://slicemachine.dev"
-				}
+			"actions": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Learn More"
+								}
+							],
+							[
+								"link",
+								{
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "https://slicemachine.dev"
+									}
+								}
+							],
+							[
+								"variant",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Select",
+									"value": "secondary"
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Sign up"
+								}
+							],
+							[
+								"link",
+								{
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "https://slicemachine.dev",
+										"target": ""
+									}
+								}
+							],
+							[
+								"variant",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Select",
+									"value": "primary"
+								}
+							]
+						]
+					}
+				]
 			}
 		},
 		"items": []

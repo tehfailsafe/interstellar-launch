@@ -4,7 +4,7 @@ import type * as prismic from '@prismicio/client';
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type PageDocumentDataSlicesSlice = RichTextSlice;
+type PageDocumentDataSlicesSlice = HeroSlice | RichTextSlice;
 
 /**
  * Content for Page documents
@@ -82,58 +82,84 @@ export type PageDocument<Lang extends string = string> = prismic.PrismicDocument
 export type AllDocumentTypes = PageDocument;
 
 /**
- * Primary content in *Hero → Primary*
+ * Item in *Hero → Default → Primary → Actions*
+ */
+export interface HeroSliceDefaultPrimaryActionsItem {
+	/**
+	 * title field in *Hero → Default → Primary → Actions*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: hero.default.primary.actions[].title
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	title: prismic.KeyTextField;
+
+	/**
+	 * link field in *Hero → Default → Primary → Actions*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: hero.default.primary.actions[].link
+	 * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+	 */
+	link: prismic.LinkField;
+
+	/**
+	 * variant field in *Hero → Default → Primary → Actions*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: primary
+	 * - **API ID Path**: hero.default.primary.actions[].variant
+	 * - **Documentation**: https://prismic.io/docs/field#select
+	 */
+	variant: prismic.SelectField<'primary' | 'secondary', 'filled'>;
+}
+
+/**
+ * Primary content in *Hero → Default → Primary*
  */
 export interface HeroSliceDefaultPrimary {
 	/**
-	 * Header field in *Hero → Primary*
+	 * Header field in *Hero → Default → Primary*
 	 *
 	 * - **Field Type**: Text
 	 * - **Placeholder**: Get shit done, but faster!
-	 * - **API ID Path**: hero.primary.header
+	 * - **API ID Path**: hero.default.primary.header
 	 * - **Documentation**: https://prismic.io/docs/field#key-text
 	 */
 	header: prismic.KeyTextField;
 
 	/**
-	 * Body field in *Hero → Primary*
+	 * Body field in *Hero → Default → Primary*
 	 *
 	 * - **Field Type**: Rich Text
 	 * - **Placeholder**: This is a generic amount of body text that should live in the header
-	 * - **API ID Path**: hero.primary.body
+	 * - **API ID Path**: hero.default.primary.body
 	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
 	 */
 	body: prismic.RichTextField;
 
 	/**
-	 * BG Image field in *Hero → Primary*
+	 * BG Image field in *Hero → Default → Primary*
 	 *
 	 * - **Field Type**: Image
 	 * - **Placeholder**: *None*
-	 * - **API ID Path**: hero.primary.bg_image
+	 * - **API ID Path**: hero.default.primary.bg_image
 	 * - **Documentation**: https://prismic.io/docs/field#image
 	 */
 	bg_image: prismic.ImageField<never>;
 
 	/**
-	 * Button Link field in *Hero → Primary*
+	 * Actions field in *Hero → Default → Primary*
 	 *
-	 * - **Field Type**: Link
+	 * - **Field Type**: Group
 	 * - **Placeholder**: *None*
-	 * - **API ID Path**: hero.primary.button_link
-	 * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+	 * - **API ID Path**: hero.default.primary.actions[]
+	 * - **Documentation**: https://prismic.io/docs/field#group
 	 */
-	button_link: prismic.LinkField;
-
-	/**
-	 * CTA Link field in *Hero → Primary*
-	 *
-	 * - **Field Type**: Link
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: hero.primary.cta_link
-	 * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-	 */
-	cta_link: prismic.LinkField;
+	actions: prismic.GroupField<Simplify<HeroSliceDefaultPrimaryActionsItem>>;
 }
 
 /**
@@ -164,15 +190,15 @@ type HeroSliceVariation = HeroSliceDefault;
 export type HeroSlice = prismic.SharedSlice<'hero', HeroSliceVariation>;
 
 /**
- * Primary content in *RichText → Primary*
+ * Primary content in *RichText → Default → Primary*
  */
 export interface RichTextSliceDefaultPrimary {
 	/**
-	 * Content field in *RichText → Primary*
+	 * Content field in *RichText → Default → Primary*
 	 *
 	 * - **Field Type**: Rich Text
 	 * - **Placeholder**: Lorem ipsum...
-	 * - **API ID Path**: rich_text.primary.content
+	 * - **API ID Path**: rich_text.default.primary.content
 	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
 	 */
 	content: prismic.RichTextField;
@@ -220,6 +246,7 @@ declare module '@prismicio/client' {
 			PageDocumentDataSlicesSlice,
 			AllDocumentTypes,
 			HeroSlice,
+			HeroSliceDefaultPrimaryActionsItem,
 			HeroSliceDefaultPrimary,
 			HeroSliceVariation,
 			HeroSliceDefault,
