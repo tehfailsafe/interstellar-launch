@@ -4,13 +4,12 @@
 
 	/** @type {import("@prismicio/client").Content.HeroSlice} */
 	export let slice;
-	console.log(slice.primary.body);
 </script>
 
 <section class="relative flex text-center justify-center items-center px-8 py-20 w-full text-white">
 	<div class="flex flex-col items-center my-16 md:my-32 max-w-prose gap-4 container">
 		<h1>
-			{slice.primary.header}
+			{slice.primary.header}!
 		</h1>
 
 		<div class="mb-12">

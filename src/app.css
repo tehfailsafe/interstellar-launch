@@ -7,11 +7,11 @@ h2,
 h3,
 h4 {
 	max-width: 65ch;
-	@apply font-extrabold text-center md:text-left;
+	@apply font-extrabold text-center md:text-center;
 }
 
 h1 {
-	@apply text-5xl md:text-5xl;
+	@apply text-2xl md:text-7xl;
 }
 
 h2 {
@@ -23,7 +23,7 @@ h3 {
 }
 
 p {
-	@apply text-center md:text-left;
+	@apply text-sm md:text-base text-center md:text-left;
 }
 
 .container {
