@@ -5,13 +5,11 @@ h1,
 h2,
 h3,
 h4 {
-	max-width: 65ch;
 	@apply font-extrabold;
 }
 
 h1 {
-	font-size: 6cqw;
-	line-height: 5cqw;
+	@apply text-[10cqi] leading-[9cqi]  md:text-[6cqi] md:leading-[5cqi];
 }
 
 h2 {
@@ -25,11 +23,15 @@ h3 {
 }
 
 p {
-	@apply text-sm text-center md:text-base md:text-left;
+	@apply text-lg;
 }
 
 .container {
 	@apply mx-auto px-6 md:px-4 max-w-[1200px];
+}
+
+.input {
+	@apply w-full px-4 py-2 border rounded border-border;
 }
 
 @layer utilities {
@@ -54,6 +56,8 @@ p {
 	--color-surface-primary: #3b54a4;
 	--color-surface-background: #fafafa;
 	--color-surface-foreground: #313131;
+
+	--color-border: var(--color-gray-300);
 
 	/* gradients */
 	--background-image-gradient-1: var(--gradient-1);

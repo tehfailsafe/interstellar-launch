@@ -8,7 +8,7 @@
 
 <section class="py-12 md:py-24">
 	<div
-		class={`container flex flex-col gap-12 md:flex-row md:items-center ${slice.primary.reversed ? 'flex-row-reverse flex-col-reverse' : ''}`}
+		class={`@container container flex flex-col gap-12 md:flex-row md:items-center ${slice.primary.reversed ? 'flex-row-reverse flex-col-reverse' : ''}`}
 	>
 		<div class="flex flex-col flex-1 gap-4 md:gap-6">
 			<!-- <PrismicRichText class="" field={slice.primary.header} /> -->
