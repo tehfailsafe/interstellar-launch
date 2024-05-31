@@ -13,10 +13,12 @@
       "imageUrl": "",
       "primary": {
         "header": {
-          "type": "Text",
+          "type": "StructuredText",
           "config": {
             "label": "Header",
-            "placeholder": "Get shit done, but faster!"
+            "placeholder": "A Beautiful Header Goes Here!",
+            "allowTargetBlank": false,
+            "single": "heading1"
           }
         },
         "body": {
@@ -70,6 +72,43 @@
                 }
               }
             }
+          }
+        },
+        "reversed": {
+          "type": "Boolean",
+          "config": {
+            "label": "reversed",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
+        },
+        "input_label": {
+          "type": "Text",
+          "config": {
+            "label": "Input Label",
+            "placeholder": ""
+          }
+        },
+        "input_action": {
+          "type": "Text",
+          "config": {
+            "label": "Input Action",
+            "placeholder": ""
+          }
+        },
+        "input_placeholder": {
+          "type": "Text",
+          "config": {
+            "label": "Input Placeholder",
+            "placeholder": ""
+          }
+        },
+        "input_cta": {
+          "type": "Text",
+          "config": {
+            "label": "Input CTA",
+            "placeholder": ""
           }
         }
       },

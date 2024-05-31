@@ -4,7 +4,7 @@ import type * as prismic from '@prismicio/client';
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type PageDocumentDataSlicesSlice = HeroSlice | RichTextSlice;
+type PageDocumentDataSlicesSlice = HeroSlice;
 
 /**
  * Content for Page documents
@@ -124,12 +124,12 @@ export interface HeroSliceDefaultPrimary {
 	/**
 	 * Header field in *Hero → Default → Primary*
 	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: Get shit done, but faster!
+	 * - **Field Type**: Title
+	 * - **Placeholder**: A Beautiful Header Goes Here!
 	 * - **API ID Path**: hero.default.primary.header
-	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
 	 */
-	header: prismic.KeyTextField;
+	header: prismic.TitleField;
 
 	/**
 	 * Body field in *Hero → Default → Primary*
@@ -160,6 +160,57 @@ export interface HeroSliceDefaultPrimary {
 	 * - **Documentation**: https://prismic.io/docs/field#group
 	 */
 	actions: prismic.GroupField<Simplify<HeroSliceDefaultPrimaryActionsItem>>;
+
+	/**
+	 * reversed field in *Hero → Default → Primary*
+	 *
+	 * - **Field Type**: Boolean
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: false
+	 * - **API ID Path**: hero.default.primary.reversed
+	 * - **Documentation**: https://prismic.io/docs/field#boolean
+	 */
+	reversed: prismic.BooleanField;
+
+	/**
+	 * Input Label field in *Hero → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: hero.default.primary.input_label
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	input_label: prismic.KeyTextField;
+
+	/**
+	 * Input Action field in *Hero → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: hero.default.primary.input_action
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	input_action: prismic.KeyTextField;
+
+	/**
+	 * Input Placeholder field in *Hero → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: hero.default.primary.input_placeholder
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	input_placeholder: prismic.KeyTextField;
+
+	/**
+	 * Input CTA field in *Hero → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: hero.default.primary.input_cta
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	input_cta: prismic.KeyTextField;
 }
 
 /**
@@ -189,48 +240,6 @@ type HeroSliceVariation = HeroSliceDefault;
  */
 export type HeroSlice = prismic.SharedSlice<'hero', HeroSliceVariation>;
 
-/**
- * Primary content in *RichText → Default → Primary*
- */
-export interface RichTextSliceDefaultPrimary {
-	/**
-	 * Content field in *RichText → Default → Primary*
-	 *
-	 * - **Field Type**: Rich Text
-	 * - **Placeholder**: Lorem ipsum...
-	 * - **API ID Path**: rich_text.default.primary.content
-	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-	 */
-	content: prismic.RichTextField;
-}
-
-/**
- * Default variation for RichText Slice
- *
- * - **API ID**: `default`
- * - **Description**: RichText
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type RichTextSliceDefault = prismic.SharedSliceVariation<
-	'default',
-	Simplify<RichTextSliceDefaultPrimary>,
-	never
->;
-
-/**
- * Slice variation for *RichText*
- */
-type RichTextSliceVariation = RichTextSliceDefault;
-
-/**
- * RichText Shared Slice
- *
- * - **API ID**: `rich_text`
- * - **Description**: RichText
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type RichTextSlice = prismic.SharedSlice<'rich_text', RichTextSliceVariation>;
-
 declare module '@prismicio/client' {
 	interface CreateClient {
 		(
@@ -249,11 +258,7 @@ declare module '@prismicio/client' {
 			HeroSliceDefaultPrimaryActionsItem,
 			HeroSliceDefaultPrimary,
 			HeroSliceVariation,
-			HeroSliceDefault,
-			RichTextSlice,
-			RichTextSliceDefaultPrimary,
-			RichTextSliceVariation,
-			RichTextSliceDefault
+			HeroSliceDefault
 		};
 	}
 }

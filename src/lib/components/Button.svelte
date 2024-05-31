@@ -6,10 +6,10 @@
 
 	export let variant: 'primary' | 'secondary' = 'primary';
 
-	const baseClass = 'justify-center px-5 py-3 rounded-lg md:px-24 md:py-4';
+	const baseClass = 'px-5 py-3 rounded';
 	const variantClasses = {
-		primary: 'bg-white text-primary-500',
-		secondary: 'border border-white/50 text-white'
+		primary: 'bg-surface-primary text-on-primary',
+		secondary: 'border border-gray-300/50 text-gray-800'
 	};
 </script>
 

@@ -3,42 +3,39 @@
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
 		"primary": {
-			"header": {
-				"__TYPE__": "FieldContent",
-				"type": "Text",
-				"value": "Ship Sites with Style!"
-			},
 			"body": {
 				"__TYPE__": "StructuredTextContent",
 				"value": [
 					{
 						"type": "paragraph",
 						"content": {
-							"text": "Tempor adipisicing non eu sunt Lorem eiusmod cupidatat consequat ad. Ut enim ex eiusmod."
-						}
+							"text": "Enim pariatur excepteur ullamco magna laborum proident ipsum ad sit culpa minim consequat. Proident nisi exercitation in non eu qui ad proident esse velit mollit ad aute aliquip.",
+							"spans": []
+						},
+						"direction": "ltr"
 					}
 				]
 			},
 			"bg_image": {
+				"url": "https://images.unsplash.com/photo-1617535394783-60cb2381b2ce?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyNnx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzE3MTA4OTM5fDA&ixlib=rb-4.0.3&q=85",
+				"alt": "clear glass mug with orange fruits",
 				"origin": {
-					"id": "main",
-					"url": "https://images.unsplash.com/photo-1587614295999-6c1c13675117",
-					"width": 3810,
-					"height": 5715
+					"id": "HotKYJ-d6gs",
+					"url": "https://images.unsplash.com/photo-1617535394783-60cb2381b2ce?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyNnx8Y2l0cnVzJTIwZnJ1aXR8ZW58MHx8fHwxNzE3MTA4OTM5fDA&ixlib=rb-4.0.3&q=85",
+					"width": 3949,
+					"height": 5939
 				},
-				"url": "https://images.unsplash.com/photo-1587614295999-6c1c13675117",
-				"width": 3810,
-				"height": 5715,
+				"width": 3949,
+				"height": 5939,
 				"edit": {
+					"background": "transparent",
 					"zoom": 1,
 					"crop": {
 						"x": 0,
 						"y": 0
-					},
-					"background": "transparent"
+					}
 				},
 				"credits": null,
-				"alt": null,
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
 			},
@@ -107,6 +104,38 @@
 								}
 							]
 						]
+					}
+				]
+			},
+			"reversed": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"input_action": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "https://localhost:5173/api/form"
+			},
+			"input_placeholder": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "Email Address"
+			},
+			"input_cta": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "Subscribe"
+			},
+			"header": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Prismic Starter Boilerplate",
+							"spans": []
+						},
+						"direction": "ltr"
 					}
 				]
 			}
