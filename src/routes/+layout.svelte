@@ -24,7 +24,7 @@
 		src="https://static.cdn.prismic.io/prismic.js?new=true&repo=prismic-starter-base"
 	></script>
 </svelte:head>
-<main>
+<main class="bg-surface">
 	<slot />
 </main>
 <PrismicPreview {repositoryName} />

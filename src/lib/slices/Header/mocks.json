@@ -1,0 +1,105 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"links": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"text",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "About us"
+								}
+							],
+							[
+								"button",
+								{
+									"__TYPE__": "BooleanContent",
+									"value": false
+								}
+							],
+							[
+								"link",
+								{
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "https://www.google.com",
+										"target": ""
+									}
+								}
+							],
+							[
+								"button_variant",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "secondary",
+									"type": "Select"
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"text",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Contact"
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"button_variant",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Select",
+									"value": "primary"
+								}
+							],
+							[
+								"button",
+								{
+									"__TYPE__": "BooleanContent",
+									"value": true
+								}
+							],
+							[
+								"text",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Text",
+									"value": "Sign up"
+								}
+							]
+						]
+					}
+				]
+			},
+			"logo": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"id": "mock_Media_link",
+					"kind": "image/jpeg",
+					"name": "mock_name",
+					"url": "https://source.unsplash.com/daily",
+					"size": "0",
+					"__TYPE__": "FileLink"
+				}
+			}
+		},
+		"items": []
+	}
+]

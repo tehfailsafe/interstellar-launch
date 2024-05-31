@@ -4,7 +4,7 @@ import type * as prismic from '@prismicio/client';
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type PageDocumentDataSlicesSlice = HeroSlice;
+type PageDocumentDataSlicesSlice = HeaderSlice | HeroSlice;
 
 /**
  * Content for Page documents
@@ -80,6 +80,105 @@ export type PageDocument<Lang extends string = string> = prismic.PrismicDocument
 >;
 
 export type AllDocumentTypes = PageDocument;
+
+/**
+ * Item in *Header → Default → Primary → Links*
+ */
+export interface HeaderSliceDefaultPrimaryLinksItem {
+	/**
+	 * Text field in *Header → Default → Primary → Links*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: header.default.primary.links[].text
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	text: prismic.KeyTextField;
+
+	/**
+	 * link field in *Header → Default → Primary → Links*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: header.default.primary.links[].link
+	 * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+	 */
+	link: prismic.LinkField;
+
+	/**
+	 * Button field in *Header → Default → Primary → Links*
+	 *
+	 * - **Field Type**: Boolean
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: false
+	 * - **API ID Path**: header.default.primary.links[].button
+	 * - **Documentation**: https://prismic.io/docs/field#boolean
+	 */
+	button: prismic.BooleanField;
+
+	/**
+	 * Button Variant field in *Header → Default → Primary → Links*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: primary
+	 * - **API ID Path**: header.default.primary.links[].button_variant
+	 * - **Documentation**: https://prismic.io/docs/field#select
+	 */
+	button_variant: prismic.SelectField<'primary' | 'secondary', 'filled'>;
+}
+
+/**
+ * Primary content in *Header → Default → Primary*
+ */
+export interface HeaderSliceDefaultPrimary {
+	/**
+	 * Logo field in *Header → Default → Primary*
+	 *
+	 * - **Field Type**: Link to Media
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: header.default.primary.logo
+	 * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+	 */
+	logo: prismic.LinkToMediaField;
+
+	/**
+	 * Links field in *Header → Default → Primary*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: header.default.primary.links[]
+	 * - **Documentation**: https://prismic.io/docs/field#group
+	 */
+	links: prismic.GroupField<Simplify<HeaderSliceDefaultPrimaryLinksItem>>;
+}
+
+/**
+ * Default variation for Header Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeaderSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Simplify<HeaderSliceDefaultPrimary>,
+	never
+>;
+
+/**
+ * Slice variation for *Header*
+ */
+type HeaderSliceVariation = HeaderSliceDefault;
+
+/**
+ * Header Shared Slice
+ *
+ * - **API ID**: `header`
+ * - **Description**: Header
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeaderSlice = prismic.SharedSlice<'header', HeaderSliceVariation>;
 
 /**
  * Item in *Hero → Default → Primary → Actions*
@@ -254,6 +353,11 @@ declare module '@prismicio/client' {
 			PageDocumentData,
 			PageDocumentDataSlicesSlice,
 			AllDocumentTypes,
+			HeaderSlice,
+			HeaderSliceDefaultPrimaryLinksItem,
+			HeaderSliceDefaultPrimary,
+			HeaderSliceVariation,
+			HeaderSliceDefault,
 			HeroSlice,
 			HeroSliceDefaultPrimaryActionsItem,
 			HeroSliceDefaultPrimary,

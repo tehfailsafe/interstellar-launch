@@ -54,7 +54,7 @@ p {
 	/* colors */
 	--color-on-primary: #ffffff;
 	--color-surface-primary: #3b54a4;
-	--color-surface-background: #fafafa;
+	--color-surface: #fafafa;
 	--color-surface-foreground: #313131;
 
 	--color-border: var(--color-gray-300);

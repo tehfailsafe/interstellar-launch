@@ -9,7 +9,8 @@
 	const baseClass = 'px-5 py-3 rounded';
 	const variantClasses = {
 		primary: 'bg-surface-primary text-on-primary',
-		secondary: 'border border-gray-300/50 text-gray-800'
+		secondary: 'border border-gray-300/50 text-gray-800',
+		undefined: ''
 	};
 </script>
 
