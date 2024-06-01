@@ -8,7 +8,7 @@
 
 <section class="py-12 md:py-24">
 	<div
-		class={`@container container flex flex-col gap-12 md:flex-row md:items-center ${slice.primary.reversed ? 'flex-row-reverse flex-col-reverse' : ''}`}
+		class={`@container flex flex-col gap-12 md:flex-row md:items-center ${slice.primary.reversed ? 'flex-row-reverse' : ''} ${slice.variation === 'default' ? 'container' : 'max-w-3xl text-center mx-auto text-on-primary justify-center items-center'}`}
 	>
 		<div class="flex flex-col flex-1 gap-4 md:gap-6">
 			<!-- <PrismicRichText class="" field={slice.primary.header} /> -->
@@ -41,10 +41,25 @@
 				</div>
 			{/if}
 		</div>
-		<div class="flex-1">
-			{#if slice.primary.bg_image}
-				<PrismicImage class="object-cover w-full aspect-square" field={slice.primary.bg_image} />
-			{/if}
-		</div>
+		{#if slice.variation === 'default'}
+			<div class="flex-1">
+				{#if slice.primary.bg_image}
+					<PrismicImage class="object-cover w-full aspect-square" field={slice.primary.bg_image} />
+				{/if}
+			</div>
+		{/if}
 	</div>
+
+	{#if slice.variation === 'fullBackgroundImage'}
+		<div class="absolute inset-0 -z-10">
+			<PrismicImage field={slice.primary.bg_image} class="object-cover size-full" />
+			<div class="absolute inset-0 bg-black/50"></div>
+		</div>
+	{/if}
+
+	<!-- <div
+			class="absolute inset-0 bg-cover bg-center top-0 left-0 bottom-0 right-0 -z-10 bg-black/80"
+		>
+			<div class="w-full h-full z-10 bg-red-500/50" />
+		</div> -->
 </section>

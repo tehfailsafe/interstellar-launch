@@ -79,7 +79,144 @@ export type PageDocument<Lang extends string = string> = prismic.PrismicDocument
 	Lang
 >;
 
-export type AllDocumentTypes = PageDocument;
+/**
+ * Item in *Settings → Navigation*
+ */
+export interface SettingsDocumentDataNavigationItem {
+	/**
+	 * Link field in *Settings → Navigation*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: settings.navigation[].link
+	 * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+	 */
+	link: prismic.LinkField;
+
+	/**
+	 * Label field in *Settings → Navigation*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: settings.navigation[].label
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	label: prismic.KeyTextField;
+}
+
+/**
+ * Item in *Settings → Actions*
+ */
+export interface SettingsDocumentDataActionsItem {
+	/**
+	 * Label field in *Settings → Actions*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: settings.actions[].label
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	label: prismic.KeyTextField;
+
+	/**
+	 * Link field in *Settings → Actions*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: settings.actions[].link
+	 * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+	 */
+	link: prismic.LinkField;
+}
+
+/**
+ * Content for Settings documents
+ */
+interface SettingsDocumentData {
+	/**
+	 * Meta Title field in *Settings*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: settings.meta_title
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	meta_title: prismic.KeyTextField;
+
+	/**
+	 * Meta Description field in *Settings*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: settings.meta_description
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	meta_description: prismic.KeyTextField;
+
+	/**
+	 * Meta Image field in *Settings*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: settings.meta_image
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#image
+	 */
+	meta_image: prismic.ImageField<never>;
+
+	/**
+	 * Navigation field in *Settings*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: settings.navigation[]
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#group
+	 */
+	navigation: prismic.GroupField<Simplify<SettingsDocumentDataNavigationItem>>;
+
+	/**
+	 * Center Nav field in *Settings*
+	 *
+	 * - **Field Type**: Boolean
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: false
+	 * - **API ID Path**: settings.center_nav
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#boolean
+	 */
+	center_nav: prismic.BooleanField;
+
+	/**
+	 * Actions field in *Settings*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: settings.actions[]
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#group
+	 */
+	actions: prismic.GroupField<Simplify<SettingsDocumentDataActionsItem>>;
+}
+
+/**
+ * Settings document from Prismic
+ *
+ * - **API ID**: `settings`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type SettingsDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<
+	Simplify<SettingsDocumentData>,
+	'settings',
+	Lang
+>;
+
+export type AllDocumentTypes = PageDocument | SettingsDocument;
 
 /**
  * Item in *Header → Default → Primary → Links*
@@ -217,6 +354,42 @@ export interface HeroSliceDefaultPrimaryActionsItem {
 }
 
 /**
+ * Item in *Hero → FullBackgroundImage → Primary → Actions*
+ */
+export interface HeroSliceFullBackgroundImagePrimaryActionsItem {
+	/**
+	 * title field in *Hero → FullBackgroundImage → Primary → Actions*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: hero.fullBackgroundImage.primary.actions[].title
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	title: prismic.KeyTextField;
+
+	/**
+	 * link field in *Hero → FullBackgroundImage → Primary → Actions*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: hero.fullBackgroundImage.primary.actions[].link
+	 * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+	 */
+	link: prismic.LinkField;
+
+	/**
+	 * variant field in *Hero → FullBackgroundImage → Primary → Actions*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: primary
+	 * - **API ID Path**: hero.fullBackgroundImage.primary.actions[].variant
+	 * - **Documentation**: https://prismic.io/docs/field#select
+	 */
+	variant: prismic.SelectField<'primary' | 'secondary', 'filled'>;
+}
+
+/**
  * Primary content in *Hero → Default → Primary*
  */
 export interface HeroSliceDefaultPrimary {
@@ -326,9 +499,118 @@ export type HeroSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *Hero → FullBackgroundImage → Primary*
+ */
+export interface HeroSliceFullBackgroundImagePrimary {
+	/**
+	 * Header field in *Hero → FullBackgroundImage → Primary*
+	 *
+	 * - **Field Type**: Title
+	 * - **Placeholder**: A Beautiful Header Goes Here!
+	 * - **API ID Path**: hero.fullBackgroundImage.primary.header
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	header: prismic.TitleField;
+
+	/**
+	 * Body field in *Hero → FullBackgroundImage → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: This is a generic amount of body text that should live in the header
+	 * - **API ID Path**: hero.fullBackgroundImage.primary.body
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	body: prismic.RichTextField;
+
+	/**
+	 * BG Image field in *Hero → FullBackgroundImage → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: hero.fullBackgroundImage.primary.bg_image
+	 * - **Documentation**: https://prismic.io/docs/field#image
+	 */
+	bg_image: prismic.ImageField<never>;
+
+	/**
+	 * Actions field in *Hero → FullBackgroundImage → Primary*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: hero.fullBackgroundImage.primary.actions[]
+	 * - **Documentation**: https://prismic.io/docs/field#group
+	 */
+	actions: prismic.GroupField<Simplify<HeroSliceFullBackgroundImagePrimaryActionsItem>>;
+
+	/**
+	 * reversed field in *Hero → FullBackgroundImage → Primary*
+	 *
+	 * - **Field Type**: Boolean
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: false
+	 * - **API ID Path**: hero.fullBackgroundImage.primary.reversed
+	 * - **Documentation**: https://prismic.io/docs/field#boolean
+	 */
+	reversed: prismic.BooleanField;
+
+	/**
+	 * Input Label field in *Hero → FullBackgroundImage → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: hero.fullBackgroundImage.primary.input_label
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	input_label: prismic.KeyTextField;
+
+	/**
+	 * Input Action field in *Hero → FullBackgroundImage → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: hero.fullBackgroundImage.primary.input_action
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	input_action: prismic.KeyTextField;
+
+	/**
+	 * Input Placeholder field in *Hero → FullBackgroundImage → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: hero.fullBackgroundImage.primary.input_placeholder
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	input_placeholder: prismic.KeyTextField;
+
+	/**
+	 * Input CTA field in *Hero → FullBackgroundImage → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: hero.fullBackgroundImage.primary.input_cta
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	input_cta: prismic.KeyTextField;
+}
+
+/**
+ * FullBackgroundImage variation for Hero Slice
+ *
+ * - **API ID**: `fullBackgroundImage`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroSliceFullBackgroundImage = prismic.SharedSliceVariation<
+	'fullBackgroundImage',
+	Simplify<HeroSliceFullBackgroundImagePrimary>,
+	never
+>;
+
+/**
  * Slice variation for *Hero*
  */
-type HeroSliceVariation = HeroSliceDefault;
+type HeroSliceVariation = HeroSliceDefault | HeroSliceFullBackgroundImage;
 
 /**
  * Hero Shared Slice
@@ -352,6 +634,10 @@ declare module '@prismicio/client' {
 			PageDocument,
 			PageDocumentData,
 			PageDocumentDataSlicesSlice,
+			SettingsDocument,
+			SettingsDocumentData,
+			SettingsDocumentDataNavigationItem,
+			SettingsDocumentDataActionsItem,
 			AllDocumentTypes,
 			HeaderSlice,
 			HeaderSliceDefaultPrimaryLinksItem,
@@ -361,8 +647,11 @@ declare module '@prismicio/client' {
 			HeroSlice,
 			HeroSliceDefaultPrimaryActionsItem,
 			HeroSliceDefaultPrimary,
+			HeroSliceFullBackgroundImagePrimaryActionsItem,
+			HeroSliceFullBackgroundImagePrimary,
 			HeroSliceVariation,
-			HeroSliceDefault
+			HeroSliceDefault,
+			HeroSliceFullBackgroundImage
 		};
 	}
 }

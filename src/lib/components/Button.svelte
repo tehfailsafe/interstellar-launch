@@ -1,15 +1,16 @@
 <script lang="ts">
 	import { PrismicLink } from '@prismicio/svelte';
 
-	let className = undefined;
+	let className: string = '';
 	export { className as class };
 
 	export let variant: 'primary' | 'secondary' = 'primary';
 
-	const baseClass = 'px-5 py-3 rounded';
+	const baseClass =
+		'w-full flex items-center justify-center px-3 py-3 md:w-auto md:px-5 md:py-3 rounded';
 	const variantClasses = {
-		primary: 'bg-surface-primary text-on-primary',
-		secondary: 'border border-gray-300/50 text-gray-800',
+		primary: 'bg-surface-primary text-surface-primary-ink',
+		secondary: 'border border-border/50 text-gray-800',
 		undefined: ''
 	};
 </script>

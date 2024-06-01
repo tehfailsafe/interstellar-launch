@@ -141,5 +141,124 @@
 			}
 		},
 		"items": []
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "fullBackgroundImage",
+		"primary": {
+			"header": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "This is a Header",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"body": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Adipisicing nostrud id ad ea sunt minim pariatur. Enim nulla cillum anim magna esse exercitation in dolor mollit ad officia sunt voluptate. Aliquip consectetur voluptate tempor nostrud nisi voluptate ullamco magna est irure mollit anim aliquip."
+						}
+					}
+				]
+			},
+			"bg_image": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1589652717521-10c0d092dea9",
+					"width": 4752,
+					"height": 3168
+				},
+				"url": "https://images.unsplash.com/photo-1589652717521-10c0d092dea9",
+				"width": 4752,
+				"height": 3168,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"actions": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "struck",
+									"type": "Text"
+								}
+							],
+							[
+								"link",
+								{
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "https://prismic.io"
+									}
+								}
+							],
+							[
+								"variant",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "secondary",
+									"type": "Select"
+								}
+							]
+						]
+					}
+				]
+			},
+			"reversed": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"input_label": {
+				"__TYPE__": "FieldContent",
+				"value": "zero",
+				"type": "Text"
+			},
+			"input_action": {
+				"__TYPE__": "FieldContent",
+				"value": "touch",
+				"type": "Text"
+			},
+			"input_placeholder": {
+				"__TYPE__": "FieldContent",
+				"value": "itself",
+				"type": "Text"
+			},
+			"input_cta": {
+				"__TYPE__": "FieldContent",
+				"value": "likely",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
 	}
 ]

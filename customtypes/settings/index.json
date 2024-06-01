@@ -1,0 +1,90 @@
+{
+	"format": "custom",
+	"id": "settings",
+	"label": "Settings",
+	"repeatable": false,
+	"status": true,
+	"json": {
+		"Main": {
+			"meta_title": {
+				"type": "Text",
+				"config": {
+					"label": "Meta Title",
+					"placeholder": ""
+				}
+			},
+			"meta_description": {
+				"type": "Text",
+				"config": {
+					"label": "Meta Description",
+					"placeholder": ""
+				}
+			},
+			"meta_image": {
+				"type": "Image",
+				"config": {
+					"label": "Meta Image",
+					"constraint": {},
+					"thumbnails": []
+				}
+			},
+			"navigation": {
+				"type": "Group",
+				"config": {
+					"label": "Navigation",
+					"repeat": true,
+					"fields": {
+						"link": {
+							"type": "Link",
+							"config": {
+								"label": "Link",
+								"placeholder": "",
+								"select": null
+							}
+						},
+						"label": {
+							"type": "Text",
+							"config": {
+								"label": "Label",
+								"placeholder": ""
+							}
+						}
+					}
+				}
+			},
+			"center_nav": {
+				"type": "Boolean",
+				"config": {
+					"label": "Center Nav",
+					"default_value": false,
+					"placeholder_true": "true",
+					"placeholder_false": "false"
+				}
+			},
+			"actions": {
+				"type": "Group",
+				"config": {
+					"label": "Actions",
+					"repeat": true,
+					"fields": {
+						"label": {
+							"type": "Text",
+							"config": {
+								"label": "Label",
+								"placeholder": ""
+							}
+						},
+						"link": {
+							"type": "Link",
+							"config": {
+								"label": "Link",
+								"placeholder": "",
+								"select": null
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

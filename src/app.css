@@ -1,61 +1,18 @@
 @import 'tailwindcss';
 @import 'open-props/style';
-
-h1,
-h2,
-h3,
-h4 {
-	@apply font-extrabold;
-}
-
-h1 {
-	@apply text-[10cqi] leading-[9cqi]  md:text-[6cqi] md:leading-[5cqi];
-}
-
-h2 {
-	font-size: 4cqw;
-	line-height: 3cqw;
-}
-
-h3 {
-	font-size: 3cqw;
-	line-height: 2cqw;
-}
-
-p {
-	@apply text-lg;
-}
-
-.container {
-	@apply mx-auto px-6 md:px-4 max-w-[1200px];
-}
-
-.input {
-	@apply w-full px-4 py-2 border rounded border-border;
-}
-
-@layer utilities {
-	.clip-top-up-right {
-		clip-path: polygon(0 10vw, 100% 0, 100% 100%, 0 100%);
-	}
-
-	.clip-bottom-up-right {
-		clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10vw), 0 100%);
-	}
-
-	.clip-bottom-top-up-right {
-		clip-path: polygon(0 10vw, 100% 0, 100% calc(100% - 10vw), 0 100%);
-	}
-}
+@import 'basetheme.css';
 
 @theme {
 	--default-font-family: var(--font-sans);
 
 	/* colors */
-	--color-on-primary: #ffffff;
-	--color-surface-primary: #3b54a4;
 	--color-surface: #fafafa;
-	--color-surface-foreground: #313131;
+	--color-ink: #313131;
+
+	--color-ink-primary: #3b54a4;
+
+	--color-surface-primary: #3b54a4;
+	--color-surface-primary-ink: #ffffff;
 
 	--color-border: var(--color-gray-300);
 

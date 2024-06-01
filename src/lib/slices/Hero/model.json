@@ -113,6 +113,116 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "fullBackgroundImage",
+      "name": "FullBackgroundImage",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "header": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Header",
+            "placeholder": "A Beautiful Header Goes Here!",
+            "allowTargetBlank": false,
+            "single": "heading1"
+          }
+        },
+        "body": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Body",
+            "placeholder": "This is a generic amount of body text that should live in the header",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "bg_image": {
+          "type": "Image",
+          "config": {
+            "label": "BG Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "actions": {
+          "type": "Group",
+          "config": {
+            "label": "Actions",
+            "repeat": true,
+            "fields": {
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "title",
+                  "placeholder": ""
+                }
+              },
+              "link": {
+                "type": "Link",
+                "config": {
+                  "label": "link",
+                  "placeholder": "",
+                  "select": null
+                }
+              },
+              "variant": {
+                "type": "Select",
+                "config": {
+                  "label": "variant",
+                  "placeholder": "",
+                  "options": [
+                    "primary",
+                    "secondary"
+                  ],
+                  "default_value": "primary"
+                }
+              }
+            }
+          }
+        },
+        "reversed": {
+          "type": "Boolean",
+          "config": {
+            "label": "reversed",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
+        },
+        "input_label": {
+          "type": "Text",
+          "config": {
+            "label": "Input Label",
+            "placeholder": ""
+          }
+        },
+        "input_action": {
+          "type": "Text",
+          "config": {
+            "label": "Input Action",
+            "placeholder": ""
+          }
+        },
+        "input_placeholder": {
+          "type": "Text",
+          "config": {
+            "label": "Input Placeholder",
+            "placeholder": ""
+          }
+        },
+        "input_cta": {
+          "type": "Text",
+          "config": {
+            "label": "Input CTA",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }
